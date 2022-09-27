@@ -1,0 +1,5 @@
+root: true
+extends:
+  # 下のどっちか
+  - "@gct256/eslint-config"
+  - "@gct256/eslint-config/react"

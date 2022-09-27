@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM"],
+    "jsx": "preserve",
+    "module": "ESNext",
+    "allowJs": false,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true
+  }
+}

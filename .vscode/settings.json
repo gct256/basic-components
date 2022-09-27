@@ -1,0 +1,63 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  },
+
+  "editor.trimAutoWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "editor.formatOnSave": true,
+
+  "files.eol": "\n",
+
+  "files.autoGuessEncoding": false,
+  "files.encoding": "utf8",
+
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": false,
+
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+    // "editor.defaultFormatter": "denoland.vscode-deno",
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+    // "editor.defaultFormatter": "denoland.vscode-deno",
+  },
+
+  "eslint.enable": true,
+
+  "deno.enable": false
+  // "deno.lint": true,
+  // "deno.unstable": true
+}
