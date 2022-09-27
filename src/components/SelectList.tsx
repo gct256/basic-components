@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { Item } from "./Item";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
+import { Item } from "../types/Item";
 
 /** Props: SelectList */
 type SelectListProps = {
@@ -53,7 +53,7 @@ export const SelectList: React.FC<SelectListProps> = React.forwardRef(
       <div
         className={joinClassName(
           classNameSet?.SelectList?.wrapper?.base,
-          disabled ? classNameSet?.SelectList?.wrapper?.disabled : "",
+          disabled && classNameSet?.SelectList?.wrapper?.disabled,
         )}
       >
         <select
@@ -64,7 +64,7 @@ export const SelectList: React.FC<SelectListProps> = React.forwardRef(
           onChange={change}
           className={joinClassName(
             classNameSet?.SelectList?.select?.base,
-            disabled ? classNameSet?.SelectList?.select?.disabled : "",
+            disabled && classNameSet?.SelectList?.select?.disabled,
           )}
         >
           {items.map((item) => (
@@ -76,7 +76,7 @@ export const SelectList: React.FC<SelectListProps> = React.forwardRef(
                 item.value === currentValue
                   ? classNameSet?.SelectList?.option?.selected
                   : "",
-                disabled ? classNameSet?.SelectList?.option?.disabled : "",
+                disabled && classNameSet?.SelectList?.option?.disabled,
               )}
             >
               {item.label}

@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
 
 /** Props: Checkbox */
 type CheckboxProps = {
@@ -53,8 +53,8 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
       <label
         className={joinClassName(
           classNameSet?.Checkbox?.wrapper?.base,
-          currentChecked ? classNameSet?.Checkbox?.wrapper?.checked : "",
-          disabled ? classNameSet?.Checkbox?.wrapper?.disabled : "",
+          currentChecked && classNameSet?.Checkbox?.wrapper?.checked,
+          disabled && classNameSet?.Checkbox?.wrapper?.disabled,
         )}
       >
         <input
@@ -66,15 +66,15 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
           onChange={change}
           className={joinClassName(
             classNameSet?.Checkbox?.input?.base,
-            currentChecked ? classNameSet?.Checkbox?.input?.checked : "",
-            disabled ? classNameSet?.Checkbox?.input?.disabled : "",
+            currentChecked && classNameSet?.Checkbox?.input?.checked,
+            disabled && classNameSet?.Checkbox?.input?.disabled,
           )}
         />
         <span
           className={joinClassName(
             classNameSet?.Checkbox?.span?.base,
-            currentChecked ? classNameSet?.Checkbox?.span?.checked : "",
-            disabled ? classNameSet?.Checkbox?.span?.disabled : "",
+            currentChecked && classNameSet?.Checkbox?.span?.checked,
+            disabled && classNameSet?.Checkbox?.span?.disabled,
           )}
         >
           {children}

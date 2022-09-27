@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
 
 /** Props: InputNumber */
 export type InputNumberProps = {
@@ -64,7 +64,7 @@ export const InputNumber: React.FC<InputNumberProps> = React.forwardRef(
         value={value !== undefined ? value : inputValue}
         className={joinClassName(
           classNameSet?.InputNumber?.input?.base,
-          disabled ? classNameSet?.InputNumber?.input?.disabled : "",
+          disabled && classNameSet?.InputNumber?.input?.disabled,
         )}
         onChange={change}
       />

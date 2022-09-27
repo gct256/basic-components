@@ -1,8 +1,9 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { Item } from "./Item";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
+import { Item } from "../types/Item";
+
 import { RadioButton } from "./RadioButton";
 
 /** Props: RadioGroup */
@@ -50,7 +51,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     <div
       className={joinClassName(
         classNameSet?.RadioGroup?.area?.base,
-        disabled ? classNameSet?.RadioGroup?.area?.disabled : "",
+        disabled && classNameSet?.RadioGroup?.area?.disabled,
       )}
     >
       {items.map((item) => (

@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
 
 /** Props: InputText */
 type InputTextProps = {
@@ -53,7 +53,7 @@ export const InputText: React.FC<InputTextProps> = React.forwardRef(
         value={value !== undefined ? value : inputValue}
         className={joinClassName(
           classNameSet?.InputText?.input?.base,
-          disabled ? classNameSet?.InputText?.input?.disabled : "",
+          disabled && classNameSet?.InputText?.input?.disabled,
         )}
         onChange={change}
       />

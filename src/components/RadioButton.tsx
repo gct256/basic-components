@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
 
 /** Props: RadioButton */
 type RadioButtonProps = {
@@ -44,8 +44,8 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
     <label
       className={joinClassName(
         classNameSet?.RadioGroup?.wrapper?.base,
-        checked ? classNameSet?.RadioGroup?.wrapper?.checked : "",
-        disabled ? classNameSet?.RadioGroup?.wrapper?.disabled : "",
+        checked && classNameSet?.RadioGroup?.wrapper?.checked,
+        disabled && classNameSet?.RadioGroup?.wrapper?.disabled,
       )}
     >
       <input
@@ -56,16 +56,16 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
         disabled={disabled}
         className={joinClassName(
           classNameSet?.RadioGroup?.input?.base,
-          checked ? classNameSet?.RadioGroup?.input?.checked : "",
-          disabled ? classNameSet?.RadioGroup?.input?.disabled : "",
+          checked && classNameSet?.RadioGroup?.input?.checked,
+          disabled && classNameSet?.RadioGroup?.input?.disabled,
         )}
         onChange={change}
       />
       <span
         className={joinClassName(
           classNameSet?.RadioGroup?.span?.base,
-          checked ? classNameSet?.RadioGroup?.span?.checked : "",
-          disabled ? classNameSet?.RadioGroup?.span?.disabled : "",
+          checked && classNameSet?.RadioGroup?.span?.checked,
+          disabled && classNameSet?.RadioGroup?.span?.disabled,
         )}
       >
         {label}

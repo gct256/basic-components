@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { ClassNameSet } from "./ClassNameSet";
-import { joinClassName } from "./joinClassName";
+import { joinClassName } from "../helpers/joinClassName";
+import { ClassNameSet } from "../types/ClassNameSet";
 
 /** Props: InputRange */
 export type InputRangeProps = {
@@ -52,7 +52,7 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
       <div
         className={joinClassName(
           classNameSet?.InputRange?.wrapper?.base,
-          disabled ? classNameSet?.InputRange?.wrapper?.disabled : "",
+          disabled && classNameSet?.InputRange?.wrapper?.disabled,
         )}
       >
         <input
@@ -65,7 +65,7 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
           value={value !== undefined ? value : inputValue}
           className={joinClassName(
             classNameSet?.InputRange?.range?.base,
-            disabled ? classNameSet?.InputRange?.range?.disabled : "",
+            disabled && classNameSet?.InputRange?.range?.disabled,
           )}
           onChange={change}
         />
@@ -78,7 +78,7 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
           value={value !== undefined ? value : inputValue}
           className={joinClassName(
             classNameSet?.InputRange?.input?.base,
-            disabled ? classNameSet?.InputRange?.input?.disabled : "",
+            disabled && classNameSet?.InputRange?.input?.disabled,
           )}
           onChange={change}
         />

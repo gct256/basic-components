@@ -12,8 +12,8 @@ export const Section: React.FC<SectionProps> = ({
   children,
 }: SectionProps): React.ReactElement | null => (
   <div>
-    <h1>{title}</h1>
-    {children}
+    <h1 className="text-lg font-bold border-b border-black">{title}</h1>
+    <div className="ml-4 mt-4 pb-4">{children}</div>
   </div>
 );
 
