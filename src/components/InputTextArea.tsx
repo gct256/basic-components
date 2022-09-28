@@ -3,8 +3,8 @@ import * as React from "react";
 import { joinClassName } from "../helpers/joinClassName";
 import { ThemeContext } from "../helpers/ThemeContext";
 
-/** Props: InputText */
-type InputTextProps = {
+/** Props: InputTextArea */
+type InputTextAreaProps = {
   initialValue?: string;
   value?: string;
 
@@ -16,8 +16,8 @@ type InputTextProps = {
   onChange?: (newValue: string) => void;
 };
 
-/** View: InputText */
-export const InputText: React.FC<InputTextProps> = React.forwardRef(
+/** View: InputTextArea */
+export const InputTextArea: React.FC<InputTextAreaProps> = React.forwardRef(
   (
     {
       initialValue,
@@ -29,13 +29,13 @@ export const InputText: React.FC<InputTextProps> = React.forwardRef(
       placeholder,
 
       onChange,
-    }: InputTextProps,
-    forwardedRef: React.ForwardedRef<HTMLInputElement>,
+    }: InputTextAreaProps,
+    forwardedRef: React.ForwardedRef<HTMLTextAreaElement>,
   ): React.ReactElement | null => {
     const theme = React.useContext(ThemeContext);
     const [inputValue, setInputValue] = React.useState(initialValue ?? "");
     const change = React.useCallback(
-      (ev: React.ChangeEvent<HTMLInputElement>) => {
+      (ev: React.ChangeEvent<HTMLTextAreaElement>) => {
         onChange?.(ev.currentTarget.value);
 
         if (value === undefined) setInputValue(ev.currentTarget.value);
@@ -44,16 +44,15 @@ export const InputText: React.FC<InputTextProps> = React.forwardRef(
     );
 
     return (
-      <input
+      <textarea
         ref={forwardedRef}
-        type="text"
         name={name}
         disabled={disabled}
         placeholder={placeholder}
         value={value !== undefined ? value : inputValue}
         className={joinClassName(
-          theme?.InputText?.input?.base,
-          disabled && theme?.InputText?.input?.disabled,
+          theme?.InputTextArea?.input?.base,
+          disabled && theme?.InputTextArea?.input?.disabled,
         )}
         onChange={change}
       />
@@ -61,4 +60,4 @@ export const InputText: React.FC<InputTextProps> = React.forwardRef(
   },
 );
 
-InputText.displayName = "InputText";
+InputTextArea.displayName = "InputTextArea";

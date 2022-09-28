@@ -1,22 +1,35 @@
-import { ClassName } from "../types/ClassName";
+import { ClassNameValue } from "../types/ClassNameValue";
 
-const join = (...args: ClassName[]): string[] => {
+const join = (...args: ClassNameValue[]): string[] => {
   const names: string[] = [];
 
   for (const arg of args) {
     if (Array.isArray(arg)) {
-      names.push(...join(...arg));
+      for (const x of join(...arg)) {
+        if (!names.includes(x)) names.push(x);
+      }
     } else if (typeof arg === "object" && arg !== null) {
       for (const [k, v] of Object.entries(arg)) {
-        if (v) names.push(...k.trim().split(/\s+/));
+        if (v) {
+          for (const x of k.trim().split(/\s+/)) {
+            if (x !== "" && !names.includes(x)) names.push(x);
+          }
+        }
       }
-    } else if (typeof arg === "string") {
-      names.push(...arg.trim().split(/\s+/));
+    } else if (typeof arg === "string" || typeof arg === "number") {
+      for (const x of `${arg}`.trim().split(/\s+/)) {
+        if (x !== "" && !names.includes(x)) names.push(x);
+      }
     }
   }
 
   return names;
 };
 
-export const joinClassName = (...args: ClassName[]): string =>
-  Array.from(new Set<string>(join(...args))).join(" ");
+export const joinClassName = (
+  ...args: ClassNameValue[]
+): string | undefined => {
+  const joined = join(...args);
+
+  return joined.length === 0 ? undefined : joined.join(" ");
+};

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { joinClassName } from "../helpers/joinClassName";
-import { ClassNameSet } from "../types/ClassNameSet";
+import { ThemeContext } from "../helpers/ThemeContext";
 import { Item } from "../types/Item";
 
 import { RadioButton } from "./RadioButton";
@@ -16,8 +16,6 @@ type RadioGroupProps = {
   name: string;
   items: Item[];
 
-  classNameSet?: ClassNameSet;
-
   onChange?: (newValue: string) => void;
 };
 
@@ -31,10 +29,9 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   name,
   items,
 
-  classNameSet,
-
   onChange,
 }: RadioGroupProps): React.ReactElement | null => {
+  const theme = React.useContext(ThemeContext);
   const [inputValue, setInputValue] = React.useState(initialValue ?? "");
   const change = React.useCallback(
     (newValue: string) => {
@@ -50,18 +47,18 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   return (
     <div
       className={joinClassName(
-        classNameSet?.RadioGroup?.area?.base,
-        disabled && classNameSet?.RadioGroup?.area?.disabled,
+        theme?.RadioGroup?.area?.base,
+        disabled && theme?.RadioGroup?.area?.disabled,
       )}
     >
       {items.map((item) => (
         <RadioButton
+          key={item.value}
           name={name}
           value={item.value}
           label={item.label}
           disabled={disabled}
           checked={currentValue === item.value}
-          classNameSet={classNameSet}
           onChange={change}
         />
       ))}

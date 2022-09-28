@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { joinClassName } from "../helpers/joinClassName";
-import { ClassNameSet } from "../types/ClassNameSet";
+import { ThemeContext } from "../helpers/ThemeContext";
 
 /** Props: RadioButton */
 type RadioButtonProps = {
@@ -11,8 +11,6 @@ type RadioButtonProps = {
   checked: boolean;
 
   disabled?: boolean;
-
-  classNameSet?: ClassNameSet;
 
   onChange?: (newValue: string) => void;
 };
@@ -26,10 +24,9 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
 
   disabled,
 
-  classNameSet,
-
   onChange,
 }: RadioButtonProps): React.ReactElement | null => {
+  const theme = React.useContext(ThemeContext);
   const change = React.useCallback(
     (ev: React.ChangeEvent<HTMLInputElement>) => {
       if (ev.currentTarget.checked) {
@@ -43,9 +40,9 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={joinClassName(
-        classNameSet?.RadioGroup?.wrapper?.base,
-        checked && classNameSet?.RadioGroup?.wrapper?.checked,
-        disabled && classNameSet?.RadioGroup?.wrapper?.disabled,
+        theme?.RadioGroup?.wrapper?.base,
+        checked && theme?.RadioGroup?.wrapper?.checked,
+        disabled && theme?.RadioGroup?.wrapper?.disabled,
       )}
     >
       <input
@@ -55,17 +52,17 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
         checked={checked}
         disabled={disabled}
         className={joinClassName(
-          classNameSet?.RadioGroup?.input?.base,
-          checked && classNameSet?.RadioGroup?.input?.checked,
-          disabled && classNameSet?.RadioGroup?.input?.disabled,
+          theme?.RadioGroup?.input?.base,
+          checked && theme?.RadioGroup?.input?.checked,
+          disabled && theme?.RadioGroup?.input?.disabled,
         )}
         onChange={change}
       />
       <span
         className={joinClassName(
-          classNameSet?.RadioGroup?.span?.base,
-          checked && classNameSet?.RadioGroup?.span?.checked,
-          disabled && classNameSet?.RadioGroup?.span?.disabled,
+          theme?.RadioGroup?.span?.base,
+          checked && theme?.RadioGroup?.span?.checked,
+          disabled && theme?.RadioGroup?.span?.disabled,
         )}
       >
         {label}

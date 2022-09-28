@@ -1,13 +1,14 @@
 import * as React from "react";
 
 import { joinClassName } from "../helpers/joinClassName";
-import { ClassNameSet } from "../types/ClassNameSet";
+import { ThemeContext } from "../helpers/ThemeContext";
 
 /** Props: InputNumber */
 export type InputNumberProps = {
   initialValue?: number;
   value?: number;
 
+  name?: string;
   disabled?: boolean;
 
   placeholder?: string;
@@ -15,8 +16,6 @@ export type InputNumberProps = {
   min?: number;
   max?: number;
   step?: number;
-
-  classNameSet?: ClassNameSet;
 
   onChange?: (newValue: number) => void;
 };
@@ -28,6 +27,7 @@ export const InputNumber: React.FC<InputNumberProps> = React.forwardRef(
       initialValue,
       value,
 
+      name,
       disabled,
 
       placeholder,
@@ -36,12 +36,11 @@ export const InputNumber: React.FC<InputNumberProps> = React.forwardRef(
       max,
       step,
 
-      classNameSet,
-
       onChange,
     }: InputNumberProps,
     forwardedRef: React.ForwardedRef<HTMLInputElement>,
   ): React.ReactElement | null => {
+    const theme = React.useContext(ThemeContext);
     const [inputValue, setInputValue] = React.useState(`${initialValue ?? ""}`);
     const change = React.useCallback(
       (ev: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +55,7 @@ export const InputNumber: React.FC<InputNumberProps> = React.forwardRef(
       <input
         ref={forwardedRef}
         type="number"
+        name={name}
         disabled={disabled}
         placeholder={placeholder}
         min={min}
@@ -63,8 +63,8 @@ export const InputNumber: React.FC<InputNumberProps> = React.forwardRef(
         step={step}
         value={value !== undefined ? value : inputValue}
         className={joinClassName(
-          classNameSet?.InputNumber?.input?.base,
-          disabled && classNameSet?.InputNumber?.input?.disabled,
+          theme?.InputNumber?.input?.base,
+          disabled && theme?.InputNumber?.input?.disabled,
         )}
         onChange={change}
       />

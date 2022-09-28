@@ -2,9 +2,10 @@ import * as React from "react";
 
 import { joinClassName } from "../helpers/joinClassName";
 import { ThemeContext } from "../helpers/ThemeContext";
+import { Item } from "../types/Item";
 
-/** Props: InputText */
-type InputTextProps = {
+/** Props: InputList */
+type InputListProps = {
   initialValue?: string;
   value?: string;
 
@@ -13,11 +14,14 @@ type InputTextProps = {
 
   placeholder?: string;
 
+  id: string;
+  items: Item[];
+
   onChange?: (newValue: string) => void;
 };
 
-/** View: InputText */
-export const InputText: React.FC<InputTextProps> = React.forwardRef(
+/** View: InputList */
+export const InputList: React.FC<InputListProps> = React.forwardRef(
   (
     {
       initialValue,
@@ -28,8 +32,11 @@ export const InputText: React.FC<InputTextProps> = React.forwardRef(
 
       placeholder,
 
+      id,
+      items,
+
       onChange,
-    }: InputTextProps,
+    }: InputListProps,
     forwardedRef: React.ForwardedRef<HTMLInputElement>,
   ): React.ReactElement | null => {
     const theme = React.useContext(ThemeContext);
@@ -44,21 +51,29 @@ export const InputText: React.FC<InputTextProps> = React.forwardRef(
     );
 
     return (
-      <input
-        ref={forwardedRef}
-        type="text"
-        name={name}
-        disabled={disabled}
-        placeholder={placeholder}
-        value={value !== undefined ? value : inputValue}
-        className={joinClassName(
-          theme?.InputText?.input?.base,
-          disabled && theme?.InputText?.input?.disabled,
-        )}
-        onChange={change}
-      />
+      <>
+        <input
+          ref={forwardedRef}
+          type="text"
+          name={name}
+          disabled={disabled}
+          placeholder={placeholder}
+          value={value !== undefined ? value : inputValue}
+          className={joinClassName(
+            theme?.InputList?.input?.base,
+            disabled && theme?.InputList?.input?.disabled,
+          )}
+          onChange={change}
+          list={id}
+        />
+        <datalist id={id}>
+          {items.map((item) => (
+            <option key={item.value}>{item.label}</option>
+          ))}
+        </datalist>
+      </>
     );
   },
 );
 
-InputText.displayName = "InputText";
+InputList.displayName = "InputList";

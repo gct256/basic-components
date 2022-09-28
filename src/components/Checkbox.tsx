@@ -1,16 +1,15 @@
 import * as React from "react";
 
 import { joinClassName } from "../helpers/joinClassName";
-import { ClassNameSet } from "../types/ClassNameSet";
+import { ThemeContext } from "../helpers/ThemeContext";
 
 /** Props: Checkbox */
 type CheckboxProps = {
   initialChecked?: boolean;
   checked?: boolean;
 
+  name?: string;
   disabled?: boolean;
-
-  classNameSet?: ClassNameSet;
 
   onChange?: (newChecked: boolean) => void;
 
@@ -24,9 +23,8 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
       initialChecked,
       checked,
 
+      name,
       disabled,
-
-      classNameSet,
 
       onChange,
 
@@ -34,6 +32,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
     }: CheckboxProps,
     forwardedRef: React.ForwardedRef<HTMLInputElement>,
   ): React.ReactElement | null => {
+    const theme = React.useContext(ThemeContext);
     const [inputChecked, setInputChecked] = React.useState(
       initialChecked ?? false,
     );
@@ -52,29 +51,30 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
       // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label
         className={joinClassName(
-          classNameSet?.Checkbox?.wrapper?.base,
-          currentChecked && classNameSet?.Checkbox?.wrapper?.checked,
-          disabled && classNameSet?.Checkbox?.wrapper?.disabled,
+          theme?.Checkbox?.wrapper?.base,
+          currentChecked && theme?.Checkbox?.wrapper?.checked,
+          disabled && theme?.Checkbox?.wrapper?.disabled,
         )}
       >
         <input
           ref={forwardedRef}
           type="checkbox"
+          name={name}
           disabled={disabled}
           value="on"
           checked={currentChecked}
           onChange={change}
           className={joinClassName(
-            classNameSet?.Checkbox?.input?.base,
-            currentChecked && classNameSet?.Checkbox?.input?.checked,
-            disabled && classNameSet?.Checkbox?.input?.disabled,
+            theme?.Checkbox?.input?.base,
+            currentChecked && theme?.Checkbox?.input?.checked,
+            disabled && theme?.Checkbox?.input?.disabled,
           )}
         />
         <span
           className={joinClassName(
-            classNameSet?.Checkbox?.span?.base,
-            currentChecked && classNameSet?.Checkbox?.span?.checked,
-            disabled && classNameSet?.Checkbox?.span?.disabled,
+            theme?.Checkbox?.span?.base,
+            currentChecked && theme?.Checkbox?.span?.checked,
+            disabled && theme?.Checkbox?.span?.disabled,
           )}
         >
           {children}

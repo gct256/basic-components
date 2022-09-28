@@ -1,10 +1,21 @@
-import { ClassNameSet } from "../../src/types/ClassNameSet";
+import { Theme } from "../../src/types/Theme";
 
-export const ExampleClassNameSet: ClassNameSet = {
+export const EXAMPLE_THEME: Theme = {
   InputText: {
     input: {
       base: [
         "w-full h-8 px-1",
+        "border border-gray-500",
+        "focus:outline-none focus:ring focus:bg-yellow-100",
+      ],
+      disabled: ["opacity-30"],
+    },
+  },
+  InputTextArea: {
+    input: {
+      base: [
+        "w-full p-1",
+        "resize-y",
         "border border-gray-500",
         "focus:outline-none focus:ring focus:bg-yellow-100",
       ],
@@ -92,6 +103,21 @@ export const ExampleClassNameSet: ClassNameSet = {
         "border border-black",
         "focus:outline-none focus:ring focus:bg-yellow-100",
       ],
+      sized: ["h-auto", "rounded-none"],
+    },
+    option: {
+      sized: ["h-9", "flex items-center"],
+    },
+  },
+
+  InputList: {
+    input: {
+      base: [
+        "w-full h-8 px-1",
+        "border border-gray-500",
+        "focus:outline-none focus:ring focus:bg-yellow-100",
+      ],
+      disabled: ["opacity-30"],
     },
   },
 
@@ -134,6 +160,16 @@ export const ExampleClassNameSet: ClassNameSet = {
         "after:rounded-full",
         "after:bg-black",
       ],
+    },
+  },
+  Button: {
+    button: {
+      base: [
+        "h-8 px-1",
+        "border border-gray-500",
+        "focus:outline-none focus:ring",
+      ],
+      disabled: ["opacity-30"],
     },
   },
 };

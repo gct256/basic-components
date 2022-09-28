@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM"],
-    "jsx": "preserve",
+    "jsx": "react",
     "module": "ESNext",
     "allowJs": false,
     "checkJs": false,
