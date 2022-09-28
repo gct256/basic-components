@@ -1,6 +1,17 @@
 {
+  "name": "@gct256/basic-components",
+  "version": "1.0.0",
+  "description": "Components of basic form element",
+  "keywords": [],
+  "author": "gct256+github@gmail.com",
+  "license": "MIT",
+  "directories": {
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
+  },
   "devDependencies": {
-    "@gct256/eslint-config": "git+https://github.com/gct256/eslint-config.git",
+    "@gct256/eslint-config": "git+https://github.com/gct256/eslint-config.git#v1.0.2",
     "@types/jest": "^29.0.3",
     "@types/node": "^18.7.11",
     "@types/react": "^18.0.17",
@@ -33,7 +44,15 @@
     "utility-types": "^3.10.0"
   },
   "scripts": {
-    "example": "node esbuild.config.mjs -w",
+    "example": "node example/esbuild.config.mjs -w",
     "test": "jest"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gct256/basic-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gct256/basic-components/issues"
+  },
+  "homepage": "https://github.com/gct256/basic-components#readme"
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { Checkbox } from "../../src/components/Checkbox";
-import { ThemeContext } from "../../src/helpers/ThemeContext";
+import { Checkbox } from "../../lib/components/Checkbox";
+import { ThemeContext } from "../../lib/helpers/ThemeContext";
 
 import { EXAMPLE_THEME } from "./EXAMPLE_THEME";
 import { ManagedComponents } from "./ManagedComponents";

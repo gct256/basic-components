@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@gct256/eslint-config': git+https://github.com/gct256/eslint-config.git
+  '@gct256/eslint-config': git+https://github.com/gct256/eslint-config.git#v1.0.2
   '@types/jest': ^29.0.3
   '@types/node': ^18.7.11
   '@types/react': ^18.0.17
@@ -33,7 +33,7 @@ dependencies:
   utility-types: 3.10.0
 
 devDependencies:
-  '@gct256/eslint-config': github.com/gct256/eslint-config/8cffd00d8faac7484f67e7d78f2135507edd4968_s6atun6s345wvzzmtbcpku5foa
+  '@gct256/eslint-config': github.com/gct256/eslint-config/6a70bb7b6a06ddc15dd44be9b8fc52e33556c214_s6atun6s345wvzzmtbcpku5foa
   '@types/jest': 29.0.3
   '@types/node': 18.7.23
   '@types/react': 18.0.21
@@ -3988,9 +3988,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  github.com/gct256/eslint-config/8cffd00d8faac7484f67e7d78f2135507edd4968_s6atun6s345wvzzmtbcpku5foa:
-    resolution: {tarball: https://codeload.github.com/gct256/eslint-config/tar.gz/8cffd00d8faac7484f67e7d78f2135507edd4968}
-    id: github.com/gct256/eslint-config/8cffd00d8faac7484f67e7d78f2135507edd4968
+  github.com/gct256/eslint-config/6a70bb7b6a06ddc15dd44be9b8fc52e33556c214_s6atun6s345wvzzmtbcpku5foa:
+    resolution: {tarball: https://codeload.github.com/gct256/eslint-config/tar.gz/6a70bb7b6a06ddc15dd44be9b8fc52e33556c214}
+    id: github.com/gct256/eslint-config/6a70bb7b6a06ddc15dd44be9b8fc52e33556c214
     name: '@gct256/eslint-config'
     version: 1.0.2
     peerDependencies:

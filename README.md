@@ -1,6 +1,6 @@
 # basic-components
 
-- Collection of basic form element.
+- Components of basic form element.
 - Intended to be styled by tailwindcss.
 
 | component name | html element                |
@@ -14,3 +14,13 @@
 | SelectList     | select                      |
 | InputList      | input[type=text] + datalist |
 | Button         | button[type=button]         |
+
+## usage
+
+```shell
+$ npm i https://github.com/gct256/basic-components.git#TAG
+```
+
+```typescript
+import { InputText } from "@gct256/basic-components/lib/InputText";
+```

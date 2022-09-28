@@ -1,4 +1,4 @@
-import { Theme } from "../../src/types/Theme";
+import { Theme } from "../../lib/types/Theme";
 
 export const EXAMPLE_THEME: Theme = {
   InputText: {

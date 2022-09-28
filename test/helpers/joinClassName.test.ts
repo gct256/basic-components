@@ -1,4 +1,4 @@
-import { joinClassName } from "../../src/helpers/joinClassName";
+import { joinClassName } from "../../lib/helpers/joinClassName";
 
 test("no arguments", () => {
   expect(joinClassName()).toBeUndefined();

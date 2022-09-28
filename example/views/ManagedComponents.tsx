@@ -1,15 +1,15 @@
 import * as React from "react";
 
-import { Button } from "../../src/components/Button";
-import { Checkbox } from "../../src/components/Checkbox";
-import { InputList } from "../../src/components/InputList";
-import { InputNumber } from "../../src/components/InputNumber";
-import { InputRange } from "../../src/components/InputRange";
-import { InputText } from "../../src/components/InputText";
-import { InputTextArea } from "../../src/components/InputTextArea";
-import { RadioGroup } from "../../src/components/RadioGroup";
-import { SelectList } from "../../src/components/SelectList";
-import { Item } from "../../src/types/Item";
+import { Button } from "../../lib/components/Button";
+import { Checkbox } from "../../lib/components/Checkbox";
+import { InputList } from "../../lib/components/InputList";
+import { InputNumber } from "../../lib/components/InputNumber";
+import { InputRange } from "../../lib/components/InputRange";
+import { InputText } from "../../lib/components/InputText";
+import { InputTextArea } from "../../lib/components/InputTextArea";
+import { RadioGroup } from "../../lib/components/RadioGroup";
+import { SelectList } from "../../lib/components/SelectList";
+import { Item } from "../../lib/types/Item";
 
 import { Section } from "./Section";
 
