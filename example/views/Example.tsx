@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Checkbox, ThemeContext, SAMPLE_THEME } from "../../lib";
+import { Checkbox, ThemeContext, SAMPLE_THEME, DEFAULT_THEME } from "../../lib";
 
 import { ManagedComponents } from "./ManagedComponents";
 
@@ -9,6 +9,7 @@ const eventHistory = new Map<number, string>();
 /** View: Example */
 export const Example: React.FC = (): React.ReactElement | null => {
   const [disabled, setDisabled] = React.useState(false);
+  const [useSampleTheme, setUseSampleTheme] = React.useState(true);
   const [serial1, setSerial1] = React.useState(0);
   const [, setSerial2] = React.useState(0);
 
@@ -28,10 +29,15 @@ export const Example: React.FC = (): React.ReactElement | null => {
   );
 
   return (
-    <ThemeContext.Provider value={SAMPLE_THEME}>
-      <div className="fixed inset-y-0 left-0 w-[20vw] p-4">
+    <ThemeContext.Provider
+      value={useSampleTheme ? SAMPLE_THEME : DEFAULT_THEME}
+    >
+      <div className="fixed inset-y-0 left-0 w-[20vw] p-4 flex flex-col">
         <Checkbox checked={disabled} onChange={setDisabled}>
           Disabled
+        </Checkbox>
+        <Checkbox checked={useSampleTheme} onChange={setUseSampleTheme}>
+          Use SAMPLE_THEME
         </Checkbox>
       </div>
       <div className="ml-[20vw] mr-[20vw] my-4 grid gap-4">
