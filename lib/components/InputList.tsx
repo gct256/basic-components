@@ -18,6 +18,7 @@ type InputListProps = {
   items: Item[];
 
   onChange?: (newValue: string) => void;
+  onEnterKey?: (currentValue: string) => void;
 };
 
 /** View: InputList */
@@ -36,6 +37,7 @@ export const InputList: React.FC<InputListProps> = React.forwardRef(
       items,
 
       onChange,
+      onEnterKey,
     }: InputListProps,
     forwardedRef: React.ForwardedRef<HTMLInputElement>,
   ): React.ReactElement | null => {
@@ -48,6 +50,15 @@ export const InputList: React.FC<InputListProps> = React.forwardRef(
         if (value === undefined) setInputValue(ev.currentTarget.value);
       },
       [onChange, value],
+    );
+    const keyUp = React.useCallback(
+      (ev: React.KeyboardEvent<HTMLInputElement>) => {
+        if (ev.key === "Enter") {
+          ev.preventDefault();
+          onEnterKey?.(ev.currentTarget.value);
+        }
+      },
+      [onEnterKey],
     );
 
     return (
@@ -64,6 +75,7 @@ export const InputList: React.FC<InputListProps> = React.forwardRef(
             disabled && theme?.InputList?.input?.disabled,
           )}
           onChange={change}
+          onKeyUp={keyUp}
           list={id}
         />
         <datalist id={id}>

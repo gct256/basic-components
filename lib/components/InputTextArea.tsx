@@ -14,6 +14,7 @@ type InputTextAreaProps = {
   placeholder?: string;
 
   onChange?: (newValue: string) => void;
+  onEnterKey?: (currentValue: string) => void;
 };
 
 /** View: InputTextArea */
@@ -29,6 +30,7 @@ export const InputTextArea: React.FC<InputTextAreaProps> = React.forwardRef(
       placeholder,
 
       onChange,
+      onEnterKey,
     }: InputTextAreaProps,
     forwardedRef: React.ForwardedRef<HTMLTextAreaElement>,
   ): React.ReactElement | null => {
@@ -41,6 +43,15 @@ export const InputTextArea: React.FC<InputTextAreaProps> = React.forwardRef(
         if (value === undefined) setInputValue(ev.currentTarget.value);
       },
       [onChange, value],
+    );
+    const keyUp = React.useCallback(
+      (ev: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (ev.key === "Enter") {
+          ev.preventDefault();
+          onEnterKey?.(ev.currentTarget.value);
+        }
+      },
+      [onEnterKey],
     );
 
     return (
@@ -55,6 +66,7 @@ export const InputTextArea: React.FC<InputTextAreaProps> = React.forwardRef(
           disabled && theme?.InputTextArea?.input?.disabled,
         )}
         onChange={change}
+        onKeyUp={keyUp}
       />
     );
   },

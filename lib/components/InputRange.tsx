@@ -16,6 +16,7 @@ export type InputRangeProps = {
   step?: number;
 
   onChange?: (newValue: number) => void;
+  onEnterKey?: (currentValue: number) => void;
 };
 
 /** View: InputRange */
@@ -33,6 +34,7 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
       step,
 
       onChange,
+      onEnterKey,
     }: InputRangeProps,
     forwardedRef: React.ForwardedRef<HTMLInputElement>,
   ): React.ReactElement | null => {
@@ -45,6 +47,15 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
         if (value === undefined) setInputValue(ev.currentTarget.value);
       },
       [onChange, value],
+    );
+    const keyUp = React.useCallback(
+      (ev: React.KeyboardEvent<HTMLInputElement>) => {
+        if (ev.key === "Enter") {
+          ev.preventDefault();
+          onEnterKey?.(ev.currentTarget.valueAsNumber);
+        }
+      },
+      [onEnterKey],
     );
 
     return (
@@ -68,6 +79,7 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
             disabled && theme?.InputRange?.range?.disabled,
           )}
           onChange={change}
+          onKeyUp={keyUp}
         />
         <input
           type="number"
@@ -81,6 +93,7 @@ export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
             disabled && theme?.InputRange?.input?.disabled,
           )}
           onChange={change}
+          onKeyUp={keyUp}
         />
       </div>
     );
