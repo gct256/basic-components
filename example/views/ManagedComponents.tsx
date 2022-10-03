@@ -1,15 +1,17 @@
 import * as React from "react";
 
-import { Button } from "../../lib/components/Button";
-import { Checkbox } from "../../lib/components/Checkbox";
-import { InputList } from "../../lib/components/InputList";
-import { InputNumber } from "../../lib/components/InputNumber";
-import { InputRange } from "../../lib/components/InputRange";
-import { InputText } from "../../lib/components/InputText";
-import { InputTextArea } from "../../lib/components/InputTextArea";
-import { RadioGroup } from "../../lib/components/RadioGroup";
-import { SelectList } from "../../lib/components/SelectList";
-import { Item } from "../../lib/types/Item";
+import {
+  Button,
+  Checkbox,
+  InputList,
+  InputNumber,
+  InputRange,
+  InputText,
+  InputTextArea,
+  RadioGroup,
+  SelectList,
+  Item,
+} from "../../lib";
 
 import { Section } from "./Section";
 
