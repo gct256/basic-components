@@ -20,7 +20,9 @@ export type InputRangeProps = {
 };
 
 /** View: InputRange */
-export const InputRange: React.FC<InputRangeProps> = React.forwardRef(
+export const InputRange: React.FC<
+  InputRangeProps & React.RefAttributes<HTMLInputElement>
+> = React.forwardRef(
   (
     {
       initialValue,

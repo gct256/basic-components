@@ -19,7 +19,9 @@ type SelectListProps = {
 };
 
 /** View: SelectList */
-export const SelectList: React.FC<SelectListProps> = React.forwardRef(
+export const SelectList: React.FC<
+  SelectListProps & React.RefAttributes<HTMLSelectElement>
+> = React.forwardRef(
   (
     {
       initialValue,

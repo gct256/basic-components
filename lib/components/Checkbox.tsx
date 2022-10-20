@@ -17,7 +17,9 @@ type CheckboxProps = {
 };
 
 /** View: Checkbox */
-export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
+export const Checkbox: React.FC<
+  CheckboxProps & React.RefAttributes<HTMLInputElement>
+> = React.forwardRef(
   (
     {
       initialChecked,

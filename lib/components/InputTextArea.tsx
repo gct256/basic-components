@@ -18,7 +18,9 @@ type InputTextAreaProps = {
 };
 
 /** View: InputTextArea */
-export const InputTextArea: React.FC<InputTextAreaProps> = React.forwardRef(
+export const InputTextArea: React.FC<
+  InputTextAreaProps & React.RefAttributes<HTMLTextAreaElement>
+> = React.forwardRef(
   (
     {
       initialValue,

@@ -22,7 +22,9 @@ export type InputNumberProps = {
 };
 
 /** View: InputNumber */
-export const InputNumber: React.FC<InputNumberProps> = React.forwardRef(
+export const InputNumber: React.FC<
+  InputNumberProps & React.RefAttributes<HTMLInputElement>
+> = React.forwardRef(
   (
     {
       initialValue,

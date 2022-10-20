@@ -22,7 +22,9 @@ type InputListProps = {
 };
 
 /** View: InputList */
-export const InputList: React.FC<InputListProps> = React.forwardRef(
+export const InputList: React.FC<
+  InputListProps & React.RefAttributes<HTMLInputElement>
+> = React.forwardRef(
   (
     {
       initialValue,

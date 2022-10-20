@@ -18,7 +18,9 @@ type InputTextProps = {
 };
 
 /** View: InputText */
-export const InputText: React.FC<InputTextProps> = React.forwardRef(
+export const InputText: React.FC<
+  InputTextProps & React.RefAttributes<HTMLInputElement>
+> = React.forwardRef(
   (
     {
       initialValue,
