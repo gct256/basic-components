@@ -75,6 +75,21 @@ export type FullTheme = {
       disabled: ClassNameValue;
     };
   };
+  PopupMenu: {
+    wrapper: {
+      base: ClassNameValue;
+      disabled: ClassNameValue;
+    };
+    button: {
+      base: ClassNameValue;
+      disabled: ClassNameValue;
+    };
+    option: {
+      base: ClassNameValue;
+      selected: ClassNameValue;
+      disabled: ClassNameValue;
+    };
+  };
   RadioGroup: {
     area: {
       base: ClassNameValue;
@@ -176,6 +191,21 @@ export const DEFAULT_THEME: FullTheme = {
   InputList: {
     input: {
       base: undefined,
+      disabled: undefined,
+    },
+  },
+  PopupMenu: {
+    wrapper: {
+      base: undefined,
+      disabled: undefined,
+    },
+    button: {
+      base: undefined,
+      disabled: undefined,
+    },
+    option: {
+      base: undefined,
+      selected: undefined,
       disabled: undefined,
     },
   },
@@ -325,6 +355,20 @@ export const SAMPLE_THEME: Theme = {
         "w-full h-8 px-1",
         "border border-gray-500",
         "focus:outline-none focus:ring focus:bg-yellow-100",
+      ],
+      disabled: ["opacity-30"],
+    },
+  },
+
+  PopupMenu: {
+    wrapper: {
+      base: ["min-h-8", "inline-flex items-center", "focus-within:ring"],
+    },
+    button: {
+      base: [
+        "h-8 px-1",
+        "border border-gray-500",
+        "focus:outline-none focus:ring",
       ],
       disabled: ["opacity-30"],
     },

@@ -10,6 +10,7 @@ import {
   InputTextArea,
   RadioGroup,
   SelectList,
+  PopupMenu,
   Item,
 } from "../../lib";
 
@@ -19,13 +20,13 @@ const selectItems: Item[] = [
   { value: "", label: "(Select)" },
   { value: "foo", label: "Foo" },
   { value: "bar", label: "Bar" },
-  { value: "baz", label: "Baz" },
+  { value: "baz", label: "Baz Baz Baz Baz Baz Baz Baz Baz Baz Baz" },
 ];
 
 const radioItems: Item[] = [
   { value: "foo", label: "Foo" },
   { value: "bar", label: "Bar" },
-  { value: "baz", label: "Baz" },
+  { value: "baz", label: "Baz Baz Baz Baz Baz Baz Baz Baz Baz Baz" },
 ];
 
 /** Props: ManagedComponents */
@@ -94,6 +95,14 @@ export const ManagedComponents: React.FC<ManagedComponentsProps> = ({
         disabled={disabled}
         items={selectItems}
         size={4}
+        onChange={(x) => onEvent(`SelectList.onChange: ${x}`)}
+      />
+    </Section>
+    <Section title="PopupMenu">
+      <PopupMenu
+        disabled={disabled}
+        buttonLabel="Popup menu"
+        items={selectItems}
         onChange={(x) => onEvent(`SelectList.onChange: ${x}`)}
       />
     </Section>

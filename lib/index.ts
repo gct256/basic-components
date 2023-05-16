@@ -5,6 +5,7 @@ import { InputNumber } from "./components/InputNumber";
 import { InputRange } from "./components/InputRange";
 import { InputText } from "./components/InputText";
 import { InputTextArea } from "./components/InputTextArea";
+import { PopupMenu } from "./components/PopupMenu";
 import { RadioGroup } from "./components/RadioGroup";
 import { SelectList } from "./components/SelectList";
 import { ThemeContext } from "./helpers/ThemeContext";
@@ -20,6 +21,7 @@ export {
   RadioGroup,
   SelectList,
   InputList,
+  PopupMenu,
   Button,
   ThemeContext,
   Item,
