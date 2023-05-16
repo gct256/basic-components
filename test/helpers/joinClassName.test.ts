@@ -99,6 +99,17 @@ describe("object", () => {
       ),
     ).toBe("foo");
   });
+
+  test("remove by object", () => {
+    expect(
+      joinClassName(
+        "foo bar baz",
+        { foo: true },
+        { bar: false },
+        { baz: true },
+      ),
+    ).toBe("foo baz");
+  });
 });
 
 describe("array", () => {
